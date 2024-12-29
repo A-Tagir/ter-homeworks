@@ -33,7 +33,7 @@
 
 * Изучаю файл .gitignore
   
-  Для хранения паролей и чувствительных к компрометации переменных перепредназначен файл personal.auto.tvars
+  Для хранения паролей и чувствительных к компрометации переменных предназначен файл personal.auto.tvars
   он не будет загружаться в git репозиторий. 
   
   Также не будут загружаться файлы state с расширение tfstate, а также содержащие в названии tfstate.
@@ -115,18 +115,20 @@ resource "docker_container" "nginx" {
 
 * Меняем имя docker-контейнера в блоке кода на hello_world:
   
-  #  name  = "example_${random_password.random_string.result}"
-  name  = "hello_world"
+ с   name  = "example_${random_password.random_string.result}"
+ на  name  = "hello_world"
 
 terraform apply -auto-approve
 
 ![renamed_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/Homwork6_terra_container_rename.png)
 
-Видим что все переимеловалось корректно. 
-Использование -auto-approve несет опасности, если предварительно не проверить конфигурацию с помощью plan
+Видим что все переименовалось корректно. 
+Использование -auto-approve несет опасности, если предварительно не проверить конфигурацию с помощью plan.
+
 Например, я перепутал и переименова имя образа. При этом не проверив запустил apply с -auto-approve.
+
 Работающий контейнер был уничтожен, а новый не создался. Для работающего а не тестового проекта это
-нежелательно и вызовет перерыв в обслуживании.
+нежелательно и вызовет перерыв в обслуживании:
 
 │ Error: Unable to create container: Error response from daemon: Conflict. The container name "/example_pUKM8ea56AgbAzxJ"
   is already in use by container "32a7fa97e9fd39d5755c16262177ef0c7cc39f3f8fc6f43889fec56489b44b0b". 
