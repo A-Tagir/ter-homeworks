@@ -1,9 +1,9 @@
-#
+###
 Домашнее задание к занятию «Введение в Terraform»
-#
-#
+###
+##
 Подготовка
-#
+##
 * Скачиваю и распаковываю Terraform
   
    wget https://hashicorp-releases.yandexcloud.net/terraform/1.8.4/terraform_1.8.4_linux_amd64.zip
