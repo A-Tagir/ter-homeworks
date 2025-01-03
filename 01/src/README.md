@@ -152,7 +152,42 @@ keep_locally = true
   keep_locally (Boolean) If true, then the Docker image won't be deleted on destroy operation.
   If this is false, it will delete the image from the docker local storage on destroy operation.
 
-#
+##
 Дополнительные задания
+##
+
+#
+Задание 2
 #
 
+* Создаю ВМ в облаке яндекс через веб-консоль. 
+![VM created](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/Homework6_terra_2_yacloud.png)
+* Установил докер стек.
+* пользователя ssh под которым происходит ssh подключение к remote docker context нужно добавить
+  в группу docker, иначе не будет работать.
+  sudo usermod -a -G docker tiger
+  Далее на локальной машине
+  
+  docker context create terraform --docker "host=ssh://tiger@89.169.146.153"
+
+  Поскольку docker использует локальный ssh клиент, то нужно подключиться и подтвердить хост:
+  ssh tiger@89.169.146.153 
+
+  "This key is not known by any other names.
+  Are you sure you want to continue connecting (yes/no/[fingerprint])? yes
+  Warning: Permanently added '89.169.146.153' (ED25519) to the list of known hosts"
+
+  ![context_created](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/Homework6_terra_2_remote_context.png)
+
+  видим, что удаленный контекст подключен.
+
+* Создаем файл mysql.tf
+[mysql.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/remotesql/mysql.tf)
+
+terraform apply
+
+и далее проверяем:
+
+![env_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/remotesql/Homework6_terra_2_yacloud_env_ok.png)
+
+Видим, что контейнер работает, mysql поднялся и переменные передались.
