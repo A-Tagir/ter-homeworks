@@ -191,3 +191,27 @@ terraform apply
 ![env_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/01/src/remotesql/Homework6_terra_2_yacloud_env_ok.png)
 
 Видим, что контейнер работает, mysql поднялся и переменные передались.
+
+#
+Задание 3
+#
+
+* Устанавливаем opentofu
+
+curl --proto '=https' --tlsv1.2 -fsSL https://get.opentofu.org/install-opentofu.sh -o install-opentofu.sh
+
+chmod +x install-opentofu.sh
+
+./install-opentofu.sh --install-method deb
+
+* далее работаем также, как с terraform:
+
+tofu init
+
+tofu plan
+
+tofu apply
+
+tofu destroy
+
+Все работает.
