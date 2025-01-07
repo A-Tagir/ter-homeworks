@@ -64,8 +64,8 @@ terraform apply -var "token=XXXXXXX"
 
  ![vm_ok_ip](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_vm_ok.png)
 
-* Подключаемся по ssh сначала неудачноЮ потому что имя tiger, правим на ubuntu и успешно.
-  Видим, что curl ifconfig.me отработал успешно:
+* Подключаемся по ssh сначала неудачно, потому что имя tiger (мы еще не умеем делать имена), правим на ubuntu и теперь успешно.
+  Видим, что curl ifconfig.me отработал, также, успешно:
 
  ![ssh_curl_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_vm_ssh.png)
 
@@ -77,6 +77,7 @@ terraform apply -var "token=XXXXXXX"
    процессорного времени.
 
 ## Задание 2
+
 
 
 
