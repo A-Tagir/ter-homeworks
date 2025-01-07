@@ -125,9 +125,10 @@ resource "yandex_compute_instance" "platform" {
 
 ## Задание 3
 
-* Копируем файл variables.tf c новым именем vms_platform.ts
+* Копируем файл variables.tf c новым именем vms_platform.ts, убираем ненужные переменные (чтобы не дублировались) и создаем новые vm_db_
 * в файле main.ts создаем новый subnet для зоны central1-b 
 * в файле main.ts копируем ресурс yandex_compute_instance и переименовываем переменные на новые.
+* в personal.auto.tfvars пишем нужные значения переменных, согласно заданию.
   Делаем 
 
 terraform apply -var "token=XXXXXXX"
