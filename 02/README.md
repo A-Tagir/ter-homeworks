@@ -119,13 +119,30 @@ resource "yandex_compute_instance" "platform" {
   }
 }
 ```
-* Проверяем результат:
+* Проверяем результат и видим, что No changes:
 
 ![no_hardcode_no_changes](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_plan_no_hardcoding.png)
 
 ## Задание 3
 
-* 
+* Копируем файл variables.tf c новым именем vms_platform.ts
+* в файле main.ts создаем новый subnet для зоны central1-b 
+* в файле main.ts копируем ресурс yandex_compute_instance и переименовываем переменные на новые.
+  Делаем 
+
+terraform apply -var "token=XXXXXXX"
+
+Ресурсы создаются:
+
+![Second VM zone B](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_vm_second_vm_zoneB.png)
+
+Также файлы tf:
+
+[main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/main.tf)
+[variables.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/variables.tf)
+[vms_platform.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/vms_platform.tf)
+
+Все переменные в personal.auto.tfvars который в git не отправляем.
 
 
 
