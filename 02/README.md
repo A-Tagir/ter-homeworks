@@ -29,5 +29,5 @@ yc iam create-token
 
   zone                     = var.default_zone
 
-  # service_account_key_file = file("~/.authorized_key.json")
+  \# service_account_key_file = file("~/.authorized_key.json")
   }
