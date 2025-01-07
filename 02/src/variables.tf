@@ -28,6 +28,65 @@ variable "vpc_name" {
   description = "VPC network & subnet name"
 }
 
+variable "token" {
+  type        = string
+  default     = ""
+  description = "IAM token"
+}
+
+variable "vm_web_family" {
+  type        = string
+  default     = "ubuntu-2004-lts"
+  description  = "VM os family"
+}
+
+variable "vm_web_name" {
+  type        = string
+  default     = "netology-vm"
+  description  = "compute instance name"
+}
+
+variable "vm_web_platform_id" {
+  type        = string
+  default     = "standard-v1"
+  description  = "yandex platform type"
+}
+
+variable "vm_web_cores" {
+  type        = number
+  default     = 2
+  description  = "VM core number"
+}
+
+variable "vm_web_memory" {
+  type        = number
+  default     = 1
+  description  = "VM memory amount GB"
+}
+
+variable "vm_web_core_fraction" {
+  type        = number
+  default     = 5
+  description  = "VM core fraction"
+}
+
+variable "vm_web_serial-port-enable" {
+  type        = number
+  default     = 1
+  description  = "VM serial port"
+}
+
+variable "vm_web_preemptible" {
+  type        = bool
+  default     = true
+  description  = "VM preemtible or not"
+}
+
+variable "vm_web_nat" {
+  type        = bool
+  default     = false
+  description  = "VM nat"
+}
 
 ###ssh vars
 
