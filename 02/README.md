@@ -80,81 +80,51 @@ terraform apply -var "token=XXXXXXX"
 
 * Заменяем хард-код значения переменными:
 
-data "yandex_compute_image" "ubuntu" {
-
+```data "yandex_compute_image" "ubuntu" {
   \#family = "ubuntu-2004-lts"
-
   family = var.vm_web_family
-
 }
-
 resource "yandex_compute_instance" "platform" {
-
   \#name        = "netology-develop-platform-web"
-
   name         = var.vm_web_name
-
   \#platform_id = "standard-v1"
-
   platform_id  = var.vm_web_platform_id
-
-
   resources {
-
     \#cores         = 2
-
     cores = var.vm_web_cores
-
     \#memory        = 1
-
     memory = var.vm_web_memory
-
     \#core_fraction = 5
-
     core_fraction = var.vm_web_core_fraction
-
   }
-
   boot_disk {
-
     initialize_params {
-
       image_id = data.yandex_compute_image.ubuntu.image_id
-
     }
-
   }
-
   scheduling_policy {
-
     \#preemptible = true
-
     preemptible = var.vm_web_preemptible
-
   }
-
   network_interface {
-
     subnet_id = yandex_vpc_subnet.develop.id
-
     \#nat       = true
-
     nat = var.vm_web_nat
-
-
   }
-
-
   metadata = {
-
     \#serial-port-enable = 1
-
     serial-port-enable = var.vm_web_serial-port-enable
-
     ssh-keys           = "ubuntu:${var.vms_ssh_root_key}"
-
   }
-  
+}
+```
+* Проверяем результат:
+
+![no_hardcode_no_changes](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_plan_no_hardcoding.png)
+
+## Задание 3
+
+* 
 
 
 
