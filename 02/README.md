@@ -156,6 +156,7 @@ terraform apply -var "token=XXXXXXX"
 * применяем 
 
 terraform init
+
 terraform apply -var "token=t1.XXXXXXXXXXXXXXXXXXX"
 
 ![apply_with_outputs](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_outputs.png)
@@ -165,6 +166,25 @@ terraform output
 также выводит требуемые в задании 4 значения.
 
 ## Задание 5
+
+* Делаем более подробные именя для ВМ используя интерполяцию переменных. В имя ВМ включаем имя образа.
+  Добавляем переменные в locals:
+[locals.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/locals.tf)
+
+Меняем имена инстансов в main.tf
+
+```
+name         = local.name_web
+
+name         = local.name_db
+
+```
+и применяем 
+
+![names with image name](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_locals.png)
+
+## Задание 6
+
 
 
 
