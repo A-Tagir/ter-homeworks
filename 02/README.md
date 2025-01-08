@@ -209,6 +209,47 @@ vms_resources = {
 
 ### 2
 
+Создаем map в variables.tf
+
+```
+variable "metadata_resources" {
+   type = map(any)
+   description = "VM metadata map"
+}
+```
+Задаем значение в terraform.tfvars
+
+```
+metadata_resources = {
+  serial-port-enable = 1
+  ssh-keys           = "ssh-ed25519 XXXXXXXXXXXXXX"
+
+}
+```
+Меняем переменные на map в main.tf
+[main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/main.tf)
+
+Более неиспрользуемые переменный удаляем.
+
+[variables.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/variables.tf)
+
+проверяем 
+
+terraform plan -var "token=t1.XXXXXXXXXXXXXXXXXXXXXXXXXXX"
+
+```
+data.yandex_compute_image.ubuntu: Reading...
+yandex_vpc_network.develop: Refreshing state... [id=enp07tdgdnjbp98o4sio]
+data.yandex_compute_image.ubuntu: Read complete after 2s [id=fd8jnfhqfidhfkglc033]
+yandex_vpc_subnet.develop_b: Refreshing state... [id=e2luaka2hhqm4fuso2cv]
+yandex_vpc_subnet.develop: Refreshing state... [id=e9bsju8qd9bdbvs5rfga]
+yandex_compute_instance.platform1: Refreshing state... [id=epdc79rt6eg7uki32b3s]
+yandex_compute_instance.platform: Refreshing state... [id=fhmb8g5b39t3rvnfpi78]
+
+No changes. Your infrastructure matches the configuration.
+```
+
+## Задание 7
 
 
 
