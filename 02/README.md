@@ -145,6 +145,27 @@ terraform apply -var "token=XXXXXXX"
 
 Все переменные в personal.auto.tfvars который в git не отправляем.
 
+## Задание 4
+
+* создаем вывод для каждой ВМ в файле outputs.tf
+  [outputs.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/outputs.tf)
+
+* создаем новый токен, потому что вчерашний уже не действует
+  yc iam create-token
+
+* применяем 
+
+terraform init
+terraform apply -var "token=t1.XXXXXXXXXXXXXXXXXXX"
+
+![apply_with_outputs](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_outputs.png)
+
+terraform output 
+
+также выводит требуемые в задании 4 значения.
+
+## Задание 5
+
 
 
 
