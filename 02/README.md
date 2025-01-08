@@ -167,7 +167,7 @@ terraform output
 
 ## Задание 5
 
-* Делаем более подробные именя для ВМ используя интерполяцию переменных. В имя ВМ включаем имя образа.
+* Делаем более подробные имена для ВМ используя интерполяцию переменных. В имя ВМ включаем имя образа.
   Добавляем переменные в locals:
 [locals.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/locals.tf)
 
@@ -184,6 +184,30 @@ name         = local.name_db
 ![names with image name](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_locals.png)
 
 ## Задание 6
+
+### 1
+Создаем map переменную в файле terraform.tfvars, не забываем объявить map в variables.tf
+выкладываю код, поскольку tfvars в .gitignore
+```
+vms_resources = {
+      web = {
+           cores = 2
+           memory = 1
+           core_fraction = 5
+        },
+      db = {
+           cores = 2
+           memory = 2
+           core_fraction = 20
+```
+Удаляем переменные, которые заменены новой map-переменной.
+Проверяем:
+
+![map_var_no_changes](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_map.png)
+
+Видим, что изменений нет.
+
+### 2
 
 
 
