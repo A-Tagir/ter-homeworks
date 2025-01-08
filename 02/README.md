@@ -229,7 +229,7 @@ metadata_resources = {
 Меняем переменные на map в main.tf
 [main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/main.tf)
 
-Более неиспрользуемые переменный удаляем.
+Более неиспользуемые переменный удаляем.
 
 [variables.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/variables.tf)
 
@@ -251,7 +251,37 @@ No changes. Your infrastructure matches the configuration.
 
 ## Задание 7
 
+### 1
+Второй элемент второй списка test_list отображается командой local.test_list[1]
+```
+> local.test_list[1]
+"staging"
+```
+### 2
 
+Длина списка 
 
+```
+> length(local.test_list)
+3
+```
+### 3
+
+ значение ключа admin из map test_map
+
+ ```
+ > local.test_map["admin"]
+"John"
+
+```
+### 4
+
+Команда
+
+"${local.test_map["admin"]} is ${keys(local.test_map)[0]} for ${local.test_list[2]} server based on OS  ${local.servers["production"]["image"]} with ${local.servers["production"]["cpu"]} vcpu ${local.servers["production"]["ram"]} ram ${ length(local.servers["production"]["disks"])} virtual disks"
+
+![console John is admin](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_console.png)
+
+## Задание 8
 
 
