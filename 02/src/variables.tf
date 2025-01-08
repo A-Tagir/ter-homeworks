@@ -31,6 +31,7 @@ variable "vpc_name" {
 variable "token" {
   type        = string
   default     = ""
+  sensitive   = true
   description = "IAM token"
 }
 
@@ -52,29 +53,11 @@ variable "vm_web_platform_id" {
   description  = "yandex platform type"
 }
 
-variable "vm_web_cores" {
-  type        = number
-  default     = 2
-  description  = "VM core number"
-}
-
-variable "vm_web_memory" {
-  type        = number
-  default     = 1
-  description  = "VM memory amount GB"
-}
-
-variable "vm_web_core_fraction" {
-  type        = number
-  default     = 5
-  description  = "VM core fraction"
-}
-
-variable "vm_web_serial-port-enable" {
-  type        = number
-  default     = 1
-  description  = "VM serial port"
-}
+#variable "vm_web_serial-port-enable" {
+#  type        = number
+#  default     = 1
+#  description  = "VM serial port"
+#}
 
 variable "vm_web_preemptible" {
   type        = bool
@@ -88,10 +71,20 @@ variable "vm_web_nat" {
   description  = "VM nat"
 }
 
+variable "vms_resources" {
+   type = map(any)
+   description = "VM resources map"
+}
+
+variable "metadata_resources" {
+   type = map(any)
+   description = "VM metadata map"
+}
+
 ###ssh vars
 
-variable "vms_ssh_root_key" {
-  type        = string
-  default     = "<your_ssh_ed25519_key>"
-  description = "ssh-keygen -t ed25519"
-}
+#variable "vms_ssh_root_key" {
+#  type        = string
+#  default     = "<your_ssh_ed25519_key>"
+#  description = "ssh-keygen -t ed25519"
+#}
