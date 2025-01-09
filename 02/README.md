@@ -284,4 +284,35 @@ No changes. Your infrastructure matches the configuration.
 
 ## Задание 8
 
+объявляем список в variables.tf
+```
+variable "test" {
+   type = list(map(list(string)))
+   description = "test list"
+}
+```
+теперь в консоли
+
+var.test[0]["dev1"][0]
+
+"ssh -o StrictHostKeyChecking=no ubuntu@62.84.124.117"
+
+## Задание 9
+
+* Добавляем шлюзы согласно инструкции для каждой подсети (ВМ в разных зонах)
+  [main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/02/src/main.tf)
+* Заходим через внешние IP по SSH и устанавливает пароль для ubuntu на каждой машине.
+* Делаем apply
+
+![nat_gateway_apply](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_nat_gateway_apply.png)
+
+* видим, что внешние адреса удалены.
+* подключаемся через web-serial-console к web:
+  ![web_ping_nat_gateway](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_serial_web_nat_gateway.png)
+
+* подключаемся через web-serial-console к db:
+  ![db_ping_nat_gateway](https://github.com/A-Tagir/ter-homeworks/blob/main/02/TerrHomework2_serial_db_nat_gateway.png)
+
+  видим, что у обоих ВМ есть доступ в интернет.
+
 
