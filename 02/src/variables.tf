@@ -81,6 +81,11 @@ variable "metadata_resources" {
    description = "VM metadata map"
 }
 
+variable "test" {
+   type = list(map(list(string)))
+   description = "test list"
+}
+
 ###ssh vars
 
 #variable "vms_ssh_root_key" {
