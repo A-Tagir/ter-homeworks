@@ -72,7 +72,7 @@ variable "vm_web_nat" {
 }
 
 variable "vms_resources" {
-   type = map(any)
+   type = map(map(number))
    description = "VM resources map"
 }
 
