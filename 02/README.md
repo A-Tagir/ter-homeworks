@@ -2,6 +2,10 @@
 
 * Чек лист выполнен, с документацией по yandex security group ознакомился.
 
+* Ссылка на репозиторий где лежит код задания
+
+[terraform_homework2](https://github.com/A-Tagir/ter-homeworks/tree/main/02/src)
+
 ## Задание 1
 
 * Создаю сервисный аккаунт netohomworktf2
