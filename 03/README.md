@@ -130,6 +130,9 @@ storage_resources = {
   disk_auto_delete = true
 }
 ```
+disk_auto_delete = true чтобы при удалении машин, диски также удалились
+(или они все равно удалятся при terraform destroy? проверю позже)
+
 [disk_vm.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/disk_vm.tf)
 
 * проверяем (terraform plan -var "token=t1XXXXXXXXX")
@@ -139,4 +142,5 @@ storage_resources = {
 Видим, что ошибки не найдены, диски должны подключиться.
 
 ## Задание 4
+
 
