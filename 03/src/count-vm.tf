@@ -24,8 +24,10 @@ resource "yandex_compute_instance" "web" {
   }
   metadata = {
     serial-port-enable = var.vm_web_metadata.serial-port-enable
-#    ssh-keys           = "ubuntu:${var.metadata_resources.ssh-keys}"
+    ssh-keys           = data.local_file.ssh-key.content
   }
+
+  depends_on = [yandex_compute_instance.db]
 
 }
 
