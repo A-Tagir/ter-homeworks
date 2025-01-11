@@ -65,3 +65,8 @@ variable "each_vm" {
     serial-console=number
   }))
 }
+
+variable "disk_resources" {
+ type = map(any)
+ description = "disk recources task3"
+}
