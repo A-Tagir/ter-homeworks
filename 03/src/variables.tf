@@ -70,3 +70,8 @@ variable "disk_resources" {
  type = map(any)
  description = "disk recources task3"
 }
+
+variable "storage_resources" {
+ type = map(any)
+ description = "storage recources task3_2"
+}
