@@ -45,6 +45,44 @@ terraform plan -var "token=t1.XXXXXXXXXXXXX"
 
  [main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/main.tf)
 
+Файл terraform.tfvars:
+
+```
+vm_web_resources = {
+  cores = 2
+  core_fraction = 5
+  memory = 1
+  preemptible = "true"
+  nat = "false"
+}
+
+vm_web_metadata = {
+  serial-port-enable = "true"
+}
+
+each_vm = [
+  {
+    vm_name = "main"
+    cpu   = 4
+    ram  = 2
+    disk_volume = 5
+    core_fraction = 20
+    preemptible = true
+    nat=false
+    serial-console = 1
+  },
+  {
+    vm_name="replica"
+    cpu   = 2
+    ram  = 1
+    disk_volume = 10
+    core_fraction = 5
+    preemptible = true
+    nat=false
+    serial-console = 1
+  }
+```
+
 * Инициализируем и apply
 
 ![VMs_created](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task2_VMs_created.png)
