@@ -93,4 +93,25 @@ each_vm = [
 
 ## Задание 3
 
+### 1
+* Создаем файл disk_vm.tf согласно заданию и добавляем нужные переменные в variables.tf:
+[disk_vm.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/disk_vm.tf)
+
+[variables.tf Task 3_1](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/variables.tf)
+
+в terraform.tfvars добавляем параметры
+
+```
+
+disk_resources = {
+  size = 1
+  type = "network-hdd"
+}
+
+```
+Проверяем 
+
+![disks_plan](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task3_disks_plan.png)
+
+### 2
 
