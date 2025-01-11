@@ -114,4 +114,29 @@ disk_resources = {
 ![disks_plan](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task3_disks_plan.png)
 
 ### 2
+* Согласно заданию создаем одиночную машину storage и подключаем к ней созданные диски 
+  с использование блока dynamic secondary_disk{..}
+  для этого в terraform.tfvars указываем параметры ВМ storage и дисков
+```
+storage_resources = {
+  vm_name = "storage"
+  cpu   = 2
+  ram  = 1
+  disk_volume = 5
+  core_fraction = 5
+  preemptible = true
+  nat=false
+  serial-console = 1
+  disk_auto_delete = true
+}
+```
+[disk_vm.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/disk_vm.tf)
+
+* проверяем (terraform plan -var "token=t1XXXXXXXXX")
+
+![secondary_disks_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task3_secondary_dynamics.png)
+
+Видим, что ошибки не найдены, диски должны подключиться.
+
+## Задание 4
 
