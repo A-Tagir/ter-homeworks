@@ -143,4 +143,44 @@ disk_auto_delete = true чтобы при удалении машин, диск�
 
 ## Задание 4
 
+### 1
+* Копируем из demo ansible.tf, hosts.tftpl, inventory.tf
+* Вносим необходимые правки согласно заданию.
+  [ansible.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/ansible.tf)
 
+  [hosts.tftpl](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/hosts.tftpl)
+
+* Выполняем код
+  Получаем ошибку при создании виртуальных дисков 1ГБ, что виртуальный диск не может быть менее 5ГБ.
+  В файле disk_vm в конфигурации yandex_compute_disk 
+  убираем заданное image_id (которое, видимо, не нужно и является причиной ограничение)
+
+![Task4_disk_error](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_VM_disks_error.png)
+
+* Повторно делаем apply
+
+![apply_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_final_apply.png)
+
+Здесь отображает создано 6, потому что остальные созданы раннее до ошибки создания дисков.
+
+* Проверяем в веб-консоли, что VM созданы:
+
+![vm_created_console](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_VM_created_web_console.png)
+
+* Проверям файл hosts.cfg:
+
+![hosts.cfg](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_hosts_cfg_ok.png)
+
+* Созданные диски в веб-консоли
+
+![disks_console](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_VM_disks.png)
+
+* Удаляем ресурсы
+
+terraform destroy -var "token=t1.XXXXXXXXXXX"
+
+![destroyed](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task4_destroyed.png)
+
+Все удалилось.
+
+## Задание 5
