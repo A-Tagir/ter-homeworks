@@ -184,3 +184,11 @@ terraform destroy -var "token=t1.XXXXXXXXXXX"
 Все удалилось.
 
 ## Задание 5
+* Создаем outputs.tf:
+[outputs.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/outputs.tf)
+
+* Делаем apply
+  
+  ![outputs](https://github.com/A-Tagir/ter-homeworks/blob/main/03/TerrHomework3_task5_output.png)
+
+  Результат не совсем как нужно, но уже дедлайн. Видел, что нужно использовать flatten. Поразбираюсь позже.
