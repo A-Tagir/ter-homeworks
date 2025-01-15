@@ -14,6 +14,9 @@ ${i["name"]}   ansible_host=${i["network_interface"][0]["nat_ip_address"]} fqdn=
 
 [storage]
 
+#Проверяем что storage["name"] существует. Это значит, что переменная list
+#storage один. Если это не так, то переменная map и запускаем цикл.
+
 %{ if can(storage["name"]) != false }
 ${storage["name"]}   ansible_host=${storage["network_interface"][0]["nat_ip_address"]} fqdn=${storage["fqdn"]}
 %{ else }
