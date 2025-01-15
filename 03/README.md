@@ -41,9 +41,12 @@ terraform plan -var "token=t1.XXXXXXXXXXXXX"
 ```
 Чтобы db запускались первыми.
 
-* в main.tf добавил data local_file чтобы использовать публичный ключ 
+* Солгасно заданию добавил файл locals.tf где объявил локальную переменную ssh_key и помощью функции filе
+    присвоил ей значение считанное из локального файла содержащего публичный ключ:
 
- [main.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/main.tf)
+ [locals.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/03/src/locals.tf)
+
+ Далее во всех metadata контейнеров обращаюсь к этой переменной.
 
 Файл terraform.tfvars:
 
