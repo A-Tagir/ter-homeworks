@@ -49,3 +49,32 @@ module.marketing-vm
 
 ## Задание 2
 
+* Создаем папку vpc и все необходимые файлы:
+  
+  [vpc-module](https://github.com/A-Tagir/ter-homeworks/tree/main/04/src/vpc)
+
+* ресурсы заменил сетями из модуля. страрые закомментировал.
+
+* Делаем init и apply
+
+![apply_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/04/TerrHomework4_task2_apply_ok.png)
+
+* вызываем консоль
+  
+![console_module](https://github.com/A-Tagir/ter-homeworks/blob/main/04/TerrHomework4_task2_console_module.png)
+
+* Генерируем доки
+
+```
+
+docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-docs/terraform-docs:0.16.0 markdown /terraform-docs > README.md
+
+```
+
+[vpc-develope-docs](https://github.com/A-Tagir/ter-homeworks/blob/main/04/src/vpc/README.md)
+
+
+## Задание 3
+
+
+
