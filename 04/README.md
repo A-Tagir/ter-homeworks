@@ -44,7 +44,7 @@ module.marketing-vm
 
 * подключаемся к внешнему IP VM с помощью публичного ключа и вызываем sudo nginx -t
   
-  [nginx_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/04/TerrHomework4_task1_nginx_ok.png)
+  ![nginx_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/04/TerrHomework4_task1_nginx_ok.png)
 
 
 ## Задание 2
