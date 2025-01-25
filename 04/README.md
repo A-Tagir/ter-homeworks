@@ -53,7 +53,7 @@ module.marketing-vm
   
   [vpc-module](https://github.com/A-Tagir/ter-homeworks/tree/main/04/src/vpc)
 
-* ресурсы заменил сетями из модуля. страрые закомментировал.
+* ресурсы заменил сетями из модуля, прежние закомментировал.
 
 * Делаем init и apply
 
@@ -75,6 +75,85 @@ docker run --rm --volume "$(pwd):/terraform-docs" -u $(id -u) quay.io/terraform-
 
 
 ## Задание 3
+
+* Выполняем terraform state list:
+
+```
+terraform state list
+data.template_file.cloudinit
+module.accounting-vm.data.yandex_compute_image.my_image
+module.accounting-vm.yandex_compute_instance.vm[0]
+module.accounting-vm.yandex_compute_instance.vm[1]
+module.marketing-vm.data.yandex_compute_image.my_image
+module.marketing-vm.yandex_compute_instance.vm[0]
+module.vpc-develope.yandex_vpc_network.develop
+module.vpc-develope.yandex_vpc_subnet.develop_a
+module.vpc-develope.yandex_vpc_subnet.develop_b
+```
+* Удаляем модули
+
+```
+terraform state rm module.vpc-develope
+Removed module.vpc-develope.yandex_vpc_network.develop
+Removed module.vpc-develope.yandex_vpc_subnet.develop_a
+Removed module.vpc-develope.yandex_vpc_subnet.develop_b
+Successfully removed 3 resource instance(s).
+
+tiger@VM1:~/ter-homeworks/04/src$ terraform state rm module.marketing-vm
+Removed module.marketing-vm.data.yandex_compute_image.my_image
+Removed module.marketing-vm.yandex_compute_instance.vm[0]
+Successfully removed 2 resource instance(s).
+
+tiger@VM1:~/ter-homeworks/04/src$ terraform state rm module.accounting-vm
+Removed module.accounting-vm.data.yandex_compute_image.my_image
+Removed module.accounting-vm.yandex_compute_instance.vm[0]
+Removed module.accounting-vm.yandex_compute_instance.vm[1]
+Successfully removed 3 resource instance(s).
+
+tiger@VM1:~/ter-homeworks/04/src$ terraform state list
+data.template_file.cloudinit
+
+```
+
+* Импортируем модули (id смотрим в консоли ycloud):
+```
+terraform import module.vpc-develope.yandex_vpc_network.develop enpqc6nq72eu29nvciff
+
+terraform import module.vpc-develope.yandex_vpc_subnet.develop_a e9brtkmp06k0do9pcha4
+
+terraform import module.vpc-develope.yandex_vpc_subnet.develop_b e2l8cgjnagok3bc0acpj
+
+terraform import module.accounting-vm.yandex_compute_instance.vm[0] fhm2gt15eji259tqjehk
+
+terraform import module.accounting-vm.yandex_compute_instance.vm[1] epd16ih10p15oq3ipf14
+
+terraform import module.marketing-vm.yandex_compute_instance.vm[0] fhmae9gsa2rq4mo162qm
+
+```
+
+* Теперь 
+```
+terraform state list
+data.template_file.cloudinit
+module.accounting-vm.data.yandex_compute_image.my_image
+module.accounting-vm.yandex_compute_instance.vm[0]
+module.accounting-vm.yandex_compute_instance.vm[1]
+module.marketing-vm.data.yandex_compute_image.my_image
+module.marketing-vm.yandex_compute_instance.vm[0]
+module.vpc-develope.yandex_vpc_network.develop
+module.vpc-develope.yandex_vpc_subnet.develop_a
+module.vpc-develope.yandex_vpc_subnet.develop_b
+```
+
+* Выполняем terraform plan
+
+![import_and_plan](https://github.com/A-Tagir/ter-homeworks/blob/main/04/TerrHomework4_task3_import_plan.png)
+
+Названия и ID совпадают, но пишет что будут обновлены. Видимо, это норма. Выполняем.
+
+
+
+
 
 
 
