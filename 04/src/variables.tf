@@ -33,24 +33,30 @@ variable "vpc_name" {
 
 ###common vars
 
-variable "vms_ssh_root_key" {
+variable "vm_username" {
   type        = string
-  default     = "your_ssh_ed25519_key"
-  description = "ssh-keygen -t ed25519"
+  default     = "ubuntu"
+  description = "example vm_web_username"
 }
 
-###example vm_web var
-variable "vm_web_name" {
+variable "vm_accounting_project" {
   type        = string
-  default     = "netology-develop-platform-web"
-  description = "example vm_web_ prefix"
+  default     = "accounting"
+  description = "vm_web projectname"
 }
 
-###example vm_db var
-variable "vm_db_name" {
+variable "vm_owner" {
   type        = string
-  default     = "netology-develop-platform-db"
-  description = "example vm_db_ prefix"
+  default     = "a.tagir"
+  description = "vm_web projectname"
+}
+
+###example vm_marketing var
+
+variable "vm_marketing_project" {
+  type        = string
+  default     = "marketing"
+  description = "vm_db projectname"
 }
 
 
