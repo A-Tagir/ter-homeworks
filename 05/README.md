@@ -64,7 +64,7 @@ docker run --rm -v "$(pwd):/tflint" ghcr.io/terraform-linters/tflint --chdir /tf
  terraform init -backend-config="access_key=XXXXXXXXXXXXXX" -backend-config="secret_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
 ```
 
-* Теперь добавляем dinamodb)endpoint
+* Теперь добавляем dinamodb_endpoint
 
 ```
 
