@@ -76,6 +76,24 @@ module "marketing-vm" {
 
 }
 
+terraform {
+
+  backend "s3" {
+  endpoints = { s3 = "https://storage.yandexcloud.net" }
+  bucket = "tfstate-devel"
+  region = "ru-central1-a"
+  key = "terraform.tfstate"
+  
+  skip_region_validation = true
+  skip_credentials_validation = true
+  skip_requesting_account_id = true
+  skip_s3_checksum = true
+  
+  dynamodb_endpoint = "https://docapi.serverless.yandexcloud.net/ru-central1/b1g4vhlfnuf4ep5dnei1/etn8driiai5oekndkl37"
+  dynamodb_table = "tfstate-table"
+}
+}
+
 #Пример передачи cloud-config в ВМ для демонстрации №3
 data "template_file" "cloudinit" {
   template = file("./cloud-init.yml")
@@ -85,3 +103,4 @@ data "template_file" "cloudinit" {
   ssh_public_key = local.vms_ssh_root_key
  }
 }
+
