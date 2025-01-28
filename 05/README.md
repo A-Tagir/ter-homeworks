@@ -44,6 +44,50 @@ docker run --rm -v "$(pwd):/tflint" ghcr.io/terraform-linters/tflint --chdir /tf
 
 ## Задание 2
 
+* Создаю новую ветку     git branch terraform-05
+  Переключаюсь           git switch terraform-05
+
+  git push origin terraform-05
+
+* Согласно заданию создаем в ycloud  хранилище free tire Object Storage backet 1ГБ
+* Создаем базу YDB и таблицу tfstate-table
+* Создаем сервисный аккаунт, создаем ключ.
+* Даем права доступа READ/WRITE для Storage и YDB
+
+Добавляем в main.tf блок s3 backet
+
+[main.tf](https://github.com/A-Tagir/ter-homeworks/blob/terraform-05/05/src/main.tf)
+
+* Выполняем terraform init   
+
+```
+ terraform init -backend-config="access_key=XXXXXXXXXXXXXX" -backend-config="secret_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXX"
+```
+
+* Теперь добавляем dinamodb)endpoint
+
+```
+
+terraform init -migrate-state -backend-config="access_key=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXX" -backend-config="secret_key=XXXXXXXXXXXXXXXXXXXXXXX"
+
+```
+
+terraform console и в другом окне еще раз вызываем:
+
+![state_locked](https://github.com/A-Tagir/ter-homeworks/blob/terraform-05/05/TerrHomework5_task2_state_lock.png)
+
+* Видим что при вызове второй консоли ошибка.
+
+* Разблокируем:
+
+terraform force-unlock d3aca172-f7f8-4fa4-bf59-0334f5b610b5
+
+Консоль разблокируется.
+
+
+
+
+
 
 
 
