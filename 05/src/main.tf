@@ -1,4 +1,4 @@
-#создаем облачную сеть
+#создаем облачную сеть 
 #resource "yandex_vpc_network" "develop" {
 #  name = "develop"
 #}
