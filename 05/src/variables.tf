@@ -53,5 +53,26 @@ variable "vm_db_name" {
   description = "example vm_db_ prefix"
 }
 
+###variable ip
+variable "ip_address" {
+  type        = string
+  default     = "192.1680.0.1"
+  description = "ip-адрес"
+  validation {
+    condition = can(regex("^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$", var.ip_address))
+    error_message = "this is not valid ip address."
+  }
+}
 
-
+###variable ip list
+variable "ip_list" {
+  type = list(string)
+  default = ["192.168.0.1","1.1.1.1","1270.0.0.1"]
+  description = "список ip-адресов"
+  validation {
+    condition = alltrue([
+    for a in var.ip_list : can(regex("^((25[0-5]|(2[0-4]|1\\d|[1-9]|)\\d)\\.?\\b){4}$", a))
+    ])
+    error_message = "this is not valid ip address."
+  }
+}
