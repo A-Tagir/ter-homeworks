@@ -74,7 +74,7 @@ terraform init -migrate-state -backend-config="access_key=XXXXXXXXXXXXXXXXXXXXXX
 
 terraform console и в другом окне еще раз вызываем:
 
-![state_locked](https://github.com/A-Tagir/ter-homeworks/blob/terraform-05/05/TerrHomework5_task2_state_lock.png)
+![state_locked](https://github.com/A-Tagir/ter-homeworks/blob/main/05/TerrHomework5_task2_state_lock.png)
 
 * Видим что при вызове второй консоли ошибка.
 
@@ -91,6 +91,18 @@ Pull request:
 [pull request](https://github.com/A-Tagir/ter-homeworks/pull/1)
 
 ## Задание 4
+
+* добавляем переменные с валидацией в variables.tf
+
+[variables.tf](https://github.com/A-Tagir/ter-homeworks/blob/main/05/src/variables.tf)
+
+* проверяем консоль с  ошибками:
+
+![validate_error](https://github.com/A-Tagir/ter-homeworks/blob/main/05/TerrHomework5_task4_validate_error.png)
+
+* проверяем консоль без ошибок:
+
+![validate_ok](https://github.com/A-Tagir/ter-homeworks/blob/main/05/TerrHomework5_task4_validate_ok.png)
 
 
 
