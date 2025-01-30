@@ -1,4 +1,4 @@
-#создаем облачную сеть
+#создаем облачную сеть 
 #resource "yandex_vpc_network" "develop" {
 #  name = "develop"
 #}
@@ -31,7 +31,7 @@ module "vpc-develope" {
 
 
 module "accounting-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=4d05fab"
   env_name       = "develop" 
   network_id     = module.vpc-develope.yandex_network_id
   subnet_zones   = ["ru-central1-a","ru-central1-b"]
@@ -54,7 +54,7 @@ module "accounting-vm" {
 }
 
 module "marketing-vm" {
-  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=main"
+  source         = "git::https://github.com/udjin10/yandex_compute_instance.git?ref=4d05fab"
   env_name       = "stage"
   network_id     = module.vpc-develope.yandex_network_id
   subnet_zones   = ["ru-central1-a"]
